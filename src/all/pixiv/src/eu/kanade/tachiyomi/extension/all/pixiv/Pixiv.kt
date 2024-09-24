@@ -182,7 +182,7 @@ class Pixiv(override val lang: String) : HttpSource() {
     }
 
     private fun makeUserIllustSearchSequence(nick: String, type: String?) = sequence<PixivIllust> {
-        val searchUsers = HttpCall("/search_user.php?s_mode=s_usr")
+        val searchUsers = HttpCall("/search/users.php?s_mode=s_usr")
             .apply { url.addQueryParameter("nick", nick) }
 
         val fetchUserIllusts = ApiCall("/touch/ajax/user/illusts")
